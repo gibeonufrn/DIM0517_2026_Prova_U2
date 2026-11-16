@@ -1,5 +1,14 @@
 name: Python
 
+on:
+  push:
+    branches:
+      - 'feature/**'
+    paths:
+      - 'python/src/**'
+      - '**/Dockerfile'
+      - '**/requirements-dev.txt'
+      - '**/requirements.txt'
 
 jobs:
   build:

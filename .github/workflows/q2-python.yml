@@ -1,5 +1,9 @@
 name: Python
 
+on:
+  pull_request:
+    branches: [develop]
+
 
 jobs:
   build:
@@ -16,7 +20,11 @@ jobs:
 
       - name: Install
         run: pip install -r requirements-dev.txt
-
+      
       - name: Check
         run: python -m py_compile src/main.py
-
+      - name: Test
+        run: | 
+          ruff check .
+          pytest -v
+      

@@ -1,5 +1,8 @@
 name: Python
 
+on: 
+  pull_request:
+    branches: [develop]
 
 jobs:
   build:
@@ -21,4 +24,11 @@ jobs:
 
       - name: Check
         run: python -m py_compile src/main.py
-
+  salvar_tag:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          custom_tag: "build-${{ github.run_id }}"
