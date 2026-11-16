@@ -1,5 +1,9 @@
 name: Java
 
+on:
+  pull_request:
+    branch: develop
+
 jobs:
   build:
 
@@ -17,5 +21,9 @@ jobs:
           cache: maven
 
       - name: Build
-        run: mvn -B compile
+        run: mvn clean package
+
+      - name: Falhou
+        if: failure()
+        run: echo "O teste falhou!"
 

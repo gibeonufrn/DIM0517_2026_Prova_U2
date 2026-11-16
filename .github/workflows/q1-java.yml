@@ -1,5 +1,13 @@
 name: Java
 
+on: 
+  push:
+    branch: 'feature/**'
+    paths:
+      - 'src/**'
+      - Dockerfile
+      - pom.xml
+    
 jobs:
   build:
     runs-on: ubuntu-latest
