@@ -17,6 +17,8 @@ class ApplicationTest {
     @Autowired
     private MockMvc mockMvc;
 
+    private Integer teste;
+
     @Test
     void hello() throws Exception {
         mockMvc.perform(get("/hello"))
