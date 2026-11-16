@@ -1,6 +1,14 @@
-name: Node
+name: Node - Questão 1
 
-
+on:
+  push:
+    branches:
+      - 'feature/**'
+    paths:
+      - 'node/src/**'
+      - 'node/Dockerfile'
+      - 'node/package.json'
+      
 jobs:
   build:
     runs-on: ubuntu-latest

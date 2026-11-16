@@ -1,8 +1,14 @@
-name: Node
+name: Node - Questão 2
 
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - develop
 
 jobs:
   build:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -19,4 +25,7 @@ jobs:
 
       - name: Check
         run: node --check src/index.js
+
+      - name: Unit tests
+        run: npm test
 

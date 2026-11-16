@@ -1,4 +1,7 @@
-name: Node
+name: Node - questão 4
+
+on:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -20,3 +23,13 @@ jobs:
 
       - name: Check
         run: node --check src/index.js
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Build Docker Image
+        run: docker build -t my-node-app .
+
+      - name: Run Docker Container
+        run: docker run --detach --name my-node-app -p 8080:8080 my-node-app
+
