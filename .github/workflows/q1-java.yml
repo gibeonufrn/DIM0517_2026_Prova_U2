@@ -1,5 +1,15 @@
 name: Java
 
+on:
+  push:
+    branches: 
+      - "feature/*"
+    paths:
+      - "java/src/*"
+      - "Dockerfile"
+      - "Docker-compose"
+      - "java/target/*"
+
 jobs:
   build:
     runs-on: ubuntu-latest
